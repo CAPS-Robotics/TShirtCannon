@@ -7,8 +7,8 @@ public class Drivetrain {
 	TalonPair right;
 	TalonPair left;
 	public Drivetrain() {
-		right = new TalonPair(DRIVE_G1A, DRIVE_G1B, true, true);
-		left = new TalonPair(DRIVE_G2A, DRIVE_G2B, false, true);
+		right = new TalonPair(DRIVE_G1A, DRIVE_G1B, false, true);
+		left = new TalonPair(DRIVE_G2A, DRIVE_G2B, true, true);
 	}
 	public void tankDrive() {
 		left.set(Robot.oi.getAxis(0, false));

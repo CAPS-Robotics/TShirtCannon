@@ -9,18 +9,22 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static Drivetrain drivetrain;
+  public static LED led;
+  public static Lift lift;
 
   public Robot() {}
 
   public void robotInit() {
     oi = new OI();
     drivetrain = new Drivetrain();
+    led = new LED();
+    lift = new Lift();
   }
 
   public void disabledInit() {}
 
   public void disabledPeriodic() {
-
+  
   }
 
   public void autonomousInit() {
@@ -32,11 +36,13 @@ public class Robot extends IterativeRobot
   }
 
   public void teleopInit() {
-
+  
   }
 
   public void teleopPeriodic() {
     drivetrain.tankDrive();
+    led.breathe();
+    lift.loop();
   }
 
   public void testPeriodic() {}
