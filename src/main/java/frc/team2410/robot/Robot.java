@@ -19,12 +19,15 @@ public class Robot extends IterativeRobot
     drivetrain = new Drivetrain();
     led = new LED();
     lift = new Lift();
+    led.setColor(0, 0, 255);
   }
 
-  public void disabledInit() {}
+  public void disabledInit() {
+    led.setColor(255, 0, 0);
+  }
 
   public void disabledPeriodic() {
-  
+    led.fade();
   }
 
   public void autonomousInit() {
@@ -36,12 +39,12 @@ public class Robot extends IterativeRobot
   }
 
   public void teleopInit() {
-  
+    led.setColor(255, 0, 0);
   }
 
   public void teleopPeriodic() {
     drivetrain.tankDrive();
-    led.breathe();
+    led.fade();
     lift.loop();
   }
 

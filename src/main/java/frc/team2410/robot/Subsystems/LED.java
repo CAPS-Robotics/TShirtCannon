@@ -1,6 +1,8 @@
 package frc.team2410.robot.Subsystems;
 
 import com.mach.LightDrive.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import static frc.team2410.robot.RobotMap.*;
 
 public class LED {
@@ -9,18 +11,17 @@ public class LED {
 		controller = new LightDriveCAN();
 	}
 	int state = 0;
-	int r = 255;
-	int b = 0;
-	int g = 0;
-	public void setColor(int r, int g, int b) {
-		Color c = new Color(r, g, b);
+	double r, g, b;
+	public void setColor(double r, double g, double b) {
+		Color c = new Color((int)r, (int)g, (int)b);
+		this.r = r;	this.g = g; this.b = b;
 		controller.SetColor(1, c);
 		controller.SetColor(2, c);
 		controller.SetColor(3, c);
 		controller.SetColor(4, c);
 		controller.Update();
 	}
-	public void breathe() {
+	public void fade() {
 		switch(state) {
 			case 0:
 				b+=3;
@@ -47,6 +48,19 @@ public class LED {
 				if(g <= 0) state = 0;
 				break;
 		}
+		setColor(r, g, b);
+	}
+	public void breathe(int r0, int g0, int b0, int r1, int g1, int b1) {
+		double ri = (r1-r0)/85.0;
+		double gi = (g1-g0)/85.0;
+		double bi = (b1-b0)/85.0;
+		if((r >= (r0 > r1 ? r0 : r1) || r <= (r0 < r1 ? r0 : r1)) && (g >= (g0 > g1 ? g0 : g1) || g <= (g0 < g1 ? g0 : g1)) && (b >= (b0 > b1 ? b0 : b1) || b <= (b0 < b1 ? b0 : b1))) {
+			state = state == 1 ? 0 : 1;
+			SmartDashboard.putNumber(""+Math.random(), 1);
+		}
+		r += ri * ((state*2)-1);
+		g += gi * ((state*2)-1);
+		b += bi * ((state*2)-1);
 		setColor(r, g, b);
 	}
 }
