@@ -8,11 +8,13 @@ import static frc.team2410.robot.RobotMap.*;
 public class Lift {
 	public WPI_TalonSRX liftMotor;
 	Indexer indexer;
+	
 	public Lift() {
 		liftMotor = new WPI_TalonSRX(LIFT);
 		liftMotor.setInverted(true);
 		indexer = new Indexer();
 	}
+	
 	public void loop() {
 		if(Robot.oi.getPOV() == 0) {
 			liftMotor.set(.33);
@@ -21,5 +23,11 @@ public class Lift {
 		} else {
 			liftMotor.set(0);
 		}
+		indexer.loop();
+	}
+	
+	public void advanceIndex() {
+		indexer.index++;
+		indexer.index %= 10;
 	}
 }

@@ -1,3 +1,7 @@
 package frc.team2410.robot.Subsystems;
 
-public class Cannon {}
+public class Cannon {
+	public Cannon() {
+	
+	}
+}

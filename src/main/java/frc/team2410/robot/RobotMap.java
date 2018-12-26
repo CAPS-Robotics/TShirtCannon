@@ -9,7 +9,7 @@ public class RobotMap {
 	public static final int LIFT = 4;
 	public static final int INDEXER = 5;
 	//GEARING
-	public static final double INDEX_RATIO = 1.0/80;
+	public static final double INDEX_RATIO = (360.0/12)/80; //Degrees per revolution, ticks per revolution, revolutions of output to revolutions of input
 	//DIO
 	public static final int INDEX_ENCODER_A = 0;
 	public static final int INDEX_ENCODER_B = 1;
