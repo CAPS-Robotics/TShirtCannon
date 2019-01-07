@@ -19,13 +19,13 @@ public class Indexer {
 	}
 	
 	public double getIndex() {
-		return (((encoder.get()%360)+360)%360)/36.0;
+		return (((encoder.get()%360)+360)%360)/18.0;
 	}
 	
 	public void loop() {
 		double i = (index-getIndex()+15)%10-5;
 		if(Math.abs(getIndex()-index) > .01) {
-			motor.set(0.3*(i/Math.abs(i)));
+			motor.set(0.15*(Math.abs(i) > 1 ? (i/Math.abs(i)) : i));
 		}
 	}
 }

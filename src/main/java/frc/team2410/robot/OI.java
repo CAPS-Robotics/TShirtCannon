@@ -11,8 +11,14 @@ public class OI {
 	}
 	
 	public void pollButtons() {
-		if(leadingEdge(7)) {
+		if(leadingEdge(4)) {
 			Robot.lift.advanceIndex();
+		}
+		if(leadingEdge(5)) {
+			Robot.lift.decreaseIndex();
+		}
+		if(leadingEdge(7)) {
+			Robot.lift.fire();
 		}
 	}
 	
