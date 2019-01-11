@@ -9,7 +9,7 @@ public class Cannon {
 	public DoubleSolenoid solenoid;
 	public Cannon() {
 		solenoid = new DoubleSolenoid(CANNON_FORWARD, CANNON_BACKWARD, PCM);
-		solenoid.set(kForward);
+		solenoid.set((!CANNON_INVERTED) ? kForward : kReverse);
 	}
 	public void set(boolean on) {
 		solenoid.set((CANNON_INVERTED ? on : !on) ? kForward : kReverse);
