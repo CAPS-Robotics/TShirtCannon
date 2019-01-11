@@ -3,14 +3,14 @@ package frc.team2410.robot;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class OI {
-	XboxController controller;
-	boolean[] canPress = new boolean[12];
+	private XboxController controller;
+	private boolean[] canPress = new boolean[12];
 	
-	public OI() {
+	OI() {
 		controller = new XboxController(0);
 	}
 	
-	public void pollButtons() {
+	void pollButtons() {
 		if(leadingEdge(4)) {
 			Robot.lift.advanceIndex();
 		}
@@ -22,7 +22,7 @@ public class OI {
 		}
 	}
 	
-	public boolean leadingEdge(int num) {
+	private boolean leadingEdge(int num) {
 		if(controller.getRawButton(num+1)) {
 			if(canPress[num]) {
 				canPress[num] = false;
@@ -40,7 +40,7 @@ public class OI {
 		return applyDeadzone(controller.getRawAxis((xAxis ? 0 : 1)+(stickNum*2)), 0.1, 1);
 	}
 	
-	double applyDeadzone(double val, double deadzone, double maxval) {
+	private double applyDeadzone(double val, double deadzone, double maxval) {
 		if(Math.abs(val) <= deadzone) {
 			return 0;
 		}

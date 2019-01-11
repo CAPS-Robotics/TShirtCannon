@@ -1,19 +1,18 @@
 package frc.team2410.robot.Subsystems;
 
-import com.mach.LightDrive.*;
+import com.mach.LightDrive.Color;
+import com.mach.LightDrive.LightDriveCAN;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import static frc.team2410.robot.RobotMap.*;
-
 public class LED {
-	LightDriveCAN controller;
+	private LightDriveCAN controller;
 	
 	public LED() {
 		controller = new LightDriveCAN();
 	}
 	
-	int state = 0;
-	double r, g, b;
+	private int state = 0;
+	private double r, g, b;
 	
 	public void setColor(double r, double g, double b) {
 		Color c = new Color((int)r, (int)g, (int)b);

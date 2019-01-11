@@ -7,10 +7,10 @@ import frc.team2410.robot.Robot;
 import static frc.team2410.robot.RobotMap.*;
 
 public class Lift {
-	public WPI_TalonSRX liftMotor;
-	Indexer indexer;
-	Cannon cannon;
-	Timer t;
+	private WPI_TalonSRX liftMotor;
+	private Indexer indexer;
+	private Cannon cannon;
+	private Timer t;
 	
 	public Lift() {
 		liftMotor = new WPI_TalonSRX(LIFT);

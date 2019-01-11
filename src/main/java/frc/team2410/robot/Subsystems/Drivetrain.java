@@ -5,8 +5,8 @@ import static frc.team2410.robot.RobotMap.*;
 import frc.team2410.robot.Robot;
 
 public class Drivetrain {
-	TalonPair right;
-	TalonPair left;
+	private TalonPair right;
+	private TalonPair left;
 	
 	public Drivetrain() {
 		right = new TalonPair(DRIVE_G1A, DRIVE_G1B, false, true);

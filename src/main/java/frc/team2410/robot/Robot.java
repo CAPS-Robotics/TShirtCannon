@@ -1,9 +1,9 @@
 package frc.team2410.robot;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team2410.robot.Subsystems.*;
+import frc.team2410.robot.Subsystems.Drivetrain;
+import frc.team2410.robot.Subsystems.LED;
+import frc.team2410.robot.Subsystems.Lift;
 
 public class Robot extends IterativeRobot {
 	public static OI oi;
@@ -13,6 +13,7 @@ public class Robot extends IterativeRobot {
 	
 	public Robot() {}
 	
+	@Override
 	public void robotInit() {
 		oi = new OI();
 		drivetrain = new Drivetrain();
@@ -21,22 +22,28 @@ public class Robot extends IterativeRobot {
 		led.setColor(0, 0, 255);
 	}
 	
+	@Override
 	public void disabledInit() {
 		led.setColor(255, 0, 0);
 	}
 	
+	@Override
 	public void disabledPeriodic() {
 		led.fade();
 	}
 	
+	@Override
 	public void autonomousInit() {}
 	
+	@Override
 	public void autonomousPeriodic() {}
 	
+	@Override
 	public void teleopInit() {
 		led.setColor(255, 0, 0);
 	}
 	
+	@Override
 	public void teleopPeriodic() {
 		drivetrain.tankDrive();
 		oi.pollButtons();
@@ -44,5 +51,6 @@ public class Robot extends IterativeRobot {
 		lift.loop();
 	}
 	
+	@Override
 	public void testPeriodic() {}
 }
