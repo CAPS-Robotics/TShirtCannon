@@ -29,7 +29,7 @@ public class Lift {
 			liftMotor.set(0);
 		}
 		indexer.loop();
-		if(t.get() >= 1) {
+		if(t.get() >= .15) {
 			t.stop();
 			t.reset();
 			cannon.set(false);
