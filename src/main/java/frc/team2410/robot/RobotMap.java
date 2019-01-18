@@ -15,5 +15,4 @@ public class RobotMap {
 	public static final int CANNON = 0;
 	//MISC
 	public static final double INDEX_RATIO = (360.0/12)/80; //Degrees per revolution, ticks per revolution, revolutions of output to revolutions of input
-	public static final boolean CANNON_INVERTED = false;
 }

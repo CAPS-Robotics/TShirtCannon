@@ -8,9 +8,9 @@ class Cannon {
 	private Talon solenoid;
 	Cannon() {
 		solenoid = new Talon(CANNON);
-		solenoid.set((!CANNON_INVERTED) ? 1 : 0);
+		solenoid.set(0);
 	}
 	void set(boolean on) {
-		solenoid.set((CANNON_INVERTED ? on : !on) ? 1 : 0);
+		solenoid.set(on ? 1 : 0);
 	}
 }
