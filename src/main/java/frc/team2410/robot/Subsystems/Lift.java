@@ -1,6 +1,7 @@
 package frc.team2410.robot.Subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 import frc.team2410.robot.Robot;
 
@@ -37,12 +38,7 @@ public class Lift {
 	}
 	
 	public void advanceIndex() {
-		indexer.index++;
-		indexer.index %= 10;
-	}
-	public void decreaseIndex() {
-		indexer.index--;
-		if(indexer.index < 0) indexer.index = 9;
+		indexer.moveTo(36);
 	}
 	
 	public void fire() {

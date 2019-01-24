@@ -14,9 +14,6 @@ public class OI {
 		if(leadingEdge(4)) {
 			Robot.lift.advanceIndex();
 		}
-		if(leadingEdge(5)) {
-			Robot.lift.decreaseIndex();
-		}
 		if(leadingEdge(7)) {
 			Robot.lift.fire();
 		}

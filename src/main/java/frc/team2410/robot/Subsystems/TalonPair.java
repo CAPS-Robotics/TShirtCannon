@@ -17,4 +17,8 @@ class TalonPair {
 		a.set(speed);
 		b.set(speed);
 	}
+	void stop() {
+		a.stopMotor();
+		b.stopMotor();
+	}
 }

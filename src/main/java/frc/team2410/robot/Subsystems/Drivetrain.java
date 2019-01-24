@@ -19,7 +19,7 @@ public class Drivetrain {
 	}
 	
 	public void stop() {
-		left.set(0);
-		right.set(0);
+		left.stop();
+		right.stop();
 	}
 }
