@@ -1,11 +1,9 @@
 package frc.team2410.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
-import frc.team2410.robot.Subsystems.Drivetrain;
-import frc.team2410.robot.Subsystems.LED;
-import frc.team2410.robot.Subsystems.Lift;
+import edu.wpi.first.wpilibj.TimedRobot;
+import frc.team2410.robot.Subsystems.*;
 
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Drivetrain drivetrain;
 	public static LED led;
@@ -23,13 +21,18 @@ public class Robot extends IterativeRobot {
 	}
 	
 	@Override
+	public void robotPeriodic() {
+	
+	}
+	
+	@Override
 	public void disabledInit() {
-		led.setColor(255, 0, 0);
+		led.setColor(0, 0, 255);
 	}
 	
 	@Override
 	public void disabledPeriodic() {
-		led.fade();
+		led.breathe(0, 0, 255, 0, 255, 255);
 	}
 	
 	@Override

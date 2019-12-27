@@ -15,7 +15,7 @@ public class Lift {
 	
 	public Lift() {
 		liftMotor = new WPI_TalonSRX(LIFT);
-		liftMotor.setInverted(true);
+		liftMotor.setInverted(false);
 		indexer = new Indexer();
 		cannon = new Cannon();
 		t = new Timer();

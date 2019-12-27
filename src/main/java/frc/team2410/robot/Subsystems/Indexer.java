@@ -21,16 +21,16 @@ class Indexer {
 		encoder.setDistancePerPulse(INDEX_RATIO);
 		pid = new PIDController(INDEX_P, INDEX_I, INDEX_D, encoder, motor);
 		pid.setInputRange(-180, 180);
-		pid.setOutputRange(-.5, .5);
+		pid.setOutputRange(-1, 1);
 		pid.setContinuous(true);
-		pid.setEnabled(false);
+		pid.setEnabled(true);
 	}
 	
 	void loop() {
-		SmartDashboard.putNumber("PID input", encoder.getDistance());
+		SmartDashboard.putNumber("PID input", encoder.get());
 		SmartDashboard.putNumber("PID output", pid.get());
 		SmartDashboard.putNumber("PID error", pid.getError());
-		if(!limitSwitch.get() && Math.abs(pid.getError()) < 30) {
+		if(!limitSwitch.get() && Math.abs(pid.getError()) < 15) {
 			moveTo(0);
 			encoder.reset();
 		}
